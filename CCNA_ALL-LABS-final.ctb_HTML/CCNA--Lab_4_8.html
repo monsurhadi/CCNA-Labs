@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Lab 4</title>
+  <meta name="generator" content="CherryTree">
+  <link rel="stylesheet" href="res/styles4.css" type="text/css" />
+</head>
+<body>
+<div class='page'><h1 class='title'>Lab 4</h1><br/><p><h1>Lab No : 04 (Dynamic Routing -EIGRP:: Enhanced Interior Gateway Routing Protocol)</h1></p><p></p><p></p><p><img src="images/8-1.png" alt="images/8-1.png" /></p><p></p><p><span style="text-decoration:underline;">Router0:</span></p><p>Router(config)#router eigrp 100</p><p>Router(config-router)#network 192.168.1.0</p><p>Router(config-router)#network 10.0.0.0</p><p>Router(config-router)#exit</p><p></p><p><span style="text-decoration:underline;">Router1:</span></p><p>Router(config)#router eigrp 100</p><p>Router(config-router)#network 10.0.0.0</p><p>Router(config-router)#</p><p>%DUAL-5-NBRCHANGE: IP-EIGRP 100: Neighbor 10.0.0.1 (Serial0/0/0) is up: new adjacency</p><p></p><p>Router(config-router)#network 11.0.0.0</p><p>Router(config-router)#network 192.168.2.0</p><p>Router(config-router)#exit</p><p></p><p><span style="text-decoration:underline;">Router2:</span></p><p>Router(config)#router eigrp 100</p><p>Router(config-router)#network 11.0.0.0</p><p>Router(config-router)#</p><p>%DUAL-5-NBRCHANGE: IP-EIGRP 100: Neighbor 11.0.0.1 (Serial0/0/0) is up: new adjacency</p><p></p><p>Router(config-router)#network 192.168.3.0</p><p>Router(config-router)#exit</p><p></p><p></p></div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Lab 13</title>
+  <meta name="generator" content="CherryTree">
+  <link rel="stylesheet" href="res/styles4.css" type="text/css" />
+</head>
+<body>
+<div class='page'><h1 class='title'>Lab 13</h1><br/><p><h1>Lab No : 13 (EtherChannel Aggregation Redundant Link)</h1></p><p></p><p><img src="images/20-1.png" alt="images/20-1.png" /></p><p></p><p><h2>PAgP (Port Aggregation Protocol):</h2></p><p><h3>1st Switch:</h3></p><p>Switch(config)#interface range FastEthernet0/1-4</p><p>Switch(config-if-range)#channel-protocol pagp</p><p>Switch(config-if-range)# channel-group 1 mode desirable</p><p></p><p><h3>2nd Switch:</h3><h3></h3></p><p><h3></h3>Switch(config)#int range f0/1-4</p><p>Switch(config-if-range)#channel-protocol pagp </p><p>Switch(config-if-range)#channel-group 1 mode auto</p><p></p><p><h3>verification command</h3></p><p>1.Show etherchannel port-channel</p><p>2.show etherchannel load-balance</p><p>3.show ip interface brief</p><p></p><p><h3>1.</h3></p><p>Switch#Show etherchannel port-channel</p><p>                Channel-group listing:</p><p>                ----------------------</p><p></p><p></p><p>Group: 1</p><p>----------</p><p>                Port-channels in the group:</p><p>                ---------------------------</p><p></p><p></p><p>Port-channel: Po1</p><p>------------</p><p></p><p></p><p>Age of the Port-channel   = 00d:00h:04m:02s</p><p>Logical slot/port   = 2/1       Number of ports = 2</p><p>GC                  = 0x00000000      HotStandBy port = null</p><p>Port state          = Port-channel </p><p>Protocol            =   PAGP</p><p>Port Security       = Disabled</p><p></p><p></p><p>Ports in the Port-channel:</p><p></p><p></p><p>Index   Load   Port     EC state        No of bits</p><p>------+------+------+------------------+-----------</p><p> --More-- </p><p></p><p></p><p><h3>2.</h3></p><p>Switch#show etherchannel load-balance </p><p>EtherChannel Load-Balancing Operational State (src-mac):</p><p>Non-IP: Source MAC address</p><p>  IPv4: Source MAC address</p><p>  IPv6: Source MAC address</p><p></p><p></p><p><h2>NOTE:</h2></p><p><table class="table"><tr><th>Protocol</th><th>Type</th><th>Active Mode</th><th>Passive Mode</th></tr><tr><td>PAgP</td><td>Cisco Proprietary</td><td>Desirable</td><td>Auto</td></tr><tr><td>LACP</td><td>IEEE Standard</td><td>Active</td><td>Passive</td></tr></table></p></div>
+</body>
+</html>

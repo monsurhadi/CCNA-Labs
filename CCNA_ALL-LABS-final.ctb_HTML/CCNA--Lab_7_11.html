@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Lab 7</title>
+  <meta name="generator" content="CherryTree">
+  <link rel="stylesheet" href="res/styles4.css" type="text/css" />
+</head>
+<body>
+<div class='page'><h1 class='title'>Lab 7</h1><br/><p><h1>Lab No : 07 (DHCP Server)</h1></p><p></p><p><img src="images/11-1.png" alt="images/11-1.png" /></p><p></p><p><h2>Steps:</h2><ol><li>Up all interfaces on the router.</li><li>Configure the DHCP server to assign IPs automatically to the PCs.</li><li>From PC0&gt;desktop&gt;IP Configuration SELECT -&gt; DHCP option.</li><li>Ping the PCs to check connection.</li></ol></p><p></p><p><span style="text-decoration:underline;">Router0:</span></p><p>Router(config)#ip dhcp pool HADI</p><p>Router(dhcp-config)#network 192.168.1.0 255.255.255.0</p><p>Router(dhcp-config)#default-router 192.168.1.1</p><p>Router(dhcp-config)#exit</p><p></p><p><h2>To exclude any selected IPs from range in the DHCP server to be assigned on devices:</h2></p><p></p><p>Router(config)#ip dhcp excluded-address 192.168.1.2 192.168.1.5     // range from (2-5) IPs won&#39;t be assigned.</p><p></p></div>
+</body>
+</html>

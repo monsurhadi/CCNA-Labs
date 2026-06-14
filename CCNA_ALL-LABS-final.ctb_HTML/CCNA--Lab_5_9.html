@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Lab 5</title>
+  <meta name="generator" content="CherryTree">
+  <link rel="stylesheet" href="res/styles4.css" type="text/css" />
+</head>
+<body>
+<div class='page'><h1 class='title'>Lab 5</h1><br/><p><h1>Lab No : 05 (Dynamic Routing -RIP::  Routing Information Protocol)</h1></p><p></p><p></p><p><img src="images/9-1.png" alt="images/9-1.png" /></p><p></p><p></p><p><h2>Steps:</h2><ol><li>Router all interfaces should be up.</li><li>All PCs are assigned IPs correctly.</li><li>Route RIP.</li><li>Ping PCs to check connectivity.</li></ol></p><p></p><p><span style="text-decoration:underline;">Dhanmondi Router</span><h3>:</h3></p><p>Router(config)#router rip</p><p>Router(config-router)#network 192.168.1.0</p><p>Router(config-router)#network 10.0.0.0</p><p>Router(config-router)#version 2</p><p>Router(config-router)#exit</p><p></p><p><span style="text-decoration:underline;">Bonani Router:</span></p><p>Router(config)#router rip</p><p>Router(config-router)#network 192.168.2.0</p><p>Router(config-router)#network 10.0.0.0</p><p>Router(config-router)#network 11.0.0.0</p><p>Router(config-router)#version 2</p><p>Router(config-router)#exit</p><p></p><p><span style="text-decoration:underline;">Gulshan Router:</span></p><p>Router(config)#router rip</p><p>Router(config-router)#network 11.0.0.0</p><p>Router(config-router)#network 192.168.3.0</p><p>Router(config-router)#version 2</p><p>Router(config-router)#exit</p><p></p><p></p></div>
+</body>
+</html>

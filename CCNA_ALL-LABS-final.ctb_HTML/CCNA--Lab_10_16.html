@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Lab 10</title>
+  <meta name="generator" content="CherryTree">
+  <link rel="stylesheet" href="res/styles4.css" type="text/css" />
+</head>
+<body>
+<div class='page'><h1 class='title'>Lab 10</h1><br/><p><h1>Lab No : 10 (ACL:: Access Control List-Extended)</h1></p><p></p><p><img src="images/16-1.png" alt="images/16-1.png" /></p><p></p><p><span style="text-decoration:underline;">Steps:</span><ol><li>First let all interface up to the routers.</li><li>Assign IPs to the PCs.</li><li>Do the routing (Here RIP was done).</li><li>Set access-list rules.</li><li>Ping according to the task to assure connection was blocked as per the task.</li></ol></p><p></p><p><span style="text-decoration:underline;">Router0:</span></p><p>Router(config)#int s 0/0/0</p><p>Router(config-if)#ip add 210.56.56.1 255.255.255.0</p><p>Router(config-if)#no sh</p><p>Router(config-if)#exit</p><p>Router(config)#int f 0/0</p><p>Router(config-if)#ip add 10.0.0.1 255.0.0.0</p><p>Router(config-if)#no sh</p><p>Router(config-if)#exit</p><p>Router(config)#router rip</p><p>Router(config-router)#network 210.56.56.0</p><p>Router(config-router)#network 10.0.0.0</p><p>Router(config-router)#exit</p><p></p><p><span style="text-decoration:underline;">Router1:</span></p><p>Router(config)#int s 0/0/0</p><p>Router(config-if)#ip add 210.56.56.2 255.255.255.0</p><p>Router(config-if)#no sh</p><p>Router(config-if)#exit</p><p>Router(config)#int f 0/0</p><p>Router(config-if)#ip add 20.0.0.1 255.0.0.0</p><p>Router(config-if)#no sh</p><p>Router(config-if)#exit</p><p>Router(config)#router rip</p><p>Router(config-router)#network 20.0.0.0 </p><p>Router(config-router)#network 210.56.56.0 </p><p>Router(config-router)#exit</p><p></p><p><span style="text-decoration:underline;">Router0 ACL rule set:</span></p><p>Router(config)#ip access-list extended pc-web-block</p><p>Router(config-ext-nacl)#deny tcp host 10.0.0.2 host 20.0.0.3 eq www</p><p>Router(config-ext-nacl)#permit tcp any any</p><p>Router(config-ext-nacl)#exit</p><p>Router(config)#int f 0/0</p><p>Router(config-if)#ip access-group pc-web-block in</p><p></p><p><span style="text-decoration:underline;">Web Test:</span></p><p>PC0 browser <a href="http://20.0.0.3">http://20.0.0.3</a> (Not responding/time out),</p><p>But PC0 ping 20.0.0.3 is OK.</p><p></p><p></p></div>
+</body>
+</html>

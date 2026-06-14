@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Lab 11</title>
+  <meta name="generator" content="CherryTree">
+  <link rel="stylesheet" href="res/styles4.css" type="text/css" />
+</head>
+<body>
+<div class='page'><h1 class='title'>Lab 11</h1><br/><p><h1>Lab No : 11 (NAT:: Network Address Translation)</h1></p><p></p><p></p><p><img src="images/18-1.png" alt="images/18-1.png" /></p><p></p><p><h2>Steps:</h2><ol><li>Interfaces up for all routers.</li><li>Default routing without gateway just interfaces.</li><li>Access-list rule for NAT.</li><li>Assign IPs to the PCs.</li></ol></p><p></p><p>Here router0 acts as Gateway router &amp; router1 acts as ISP router.</p><p></p><p><span style="text-decoration:underline;">Router0:</span></p><p>Router(config)#int f 0/0</p><p>Router(config-if)#ip add 30.0.0.2 255.0.0.0</p><p>Router(config-if)#no sh</p><p>Router(config-if)#exit</p><p>Router(config)#int f 0/1</p><p>Router(config-if)#ip add 20.0.0.1 255.0.0.0</p><p>Router(config-if)#no sh</p><p>Router(config-if)#exit</p><p>Router(config)#ip route 0.0.0.0 0.0.0.0 f 0/1</p><p></p><p><span style="text-decoration:underline;">Router1:</span></p><p>Router(config)#int f 0/0</p><p>Router(config-if)#ip add 192.168.1.1 255.255.255.0</p><p>Router(config-if)#no sh</p><p>Router(config-if)#exit</p><p>Router(config)#int f 0/1</p><p>Router(config-if)#ip add 30.0.0.1 255.0.0.0</p><p>Router(config-if)#no sh</p><p>Router(config-if)#exit</p><p>Router(config)#ip route 0.0.0.0 0.0.0.0 f 0/1</p><p></p><p><span style="text-decoration:underline;">Router0:</span></p><p>Router(config)#access-list 10 permit 192.168.1.0 0.0.0.255</p><p>Router(config)#ip nat pool ccna 60.0.0.1 60.0.0.1 netmask 255.0.0.0</p><p>Router(config)#ip nat inside source list 10 pool ccna overload</p><p>Router(config)#int f 0/0</p><p>Router(config-if)#ip nat inside</p><p>Router(config-if)#no sh</p><p>Router(config-if)#exit</p><p>Router(config)#int f 0/1</p><p>Router(config-if)#ip nat outside</p><p>Router(config-if)#no sh</p><p>Router(config-if)# exit</p><p></p><p><span style="text-decoration:underline;">To Verify:</span></p><p>Router#Show ip nat translations</p></div>
+</body>
+</html>

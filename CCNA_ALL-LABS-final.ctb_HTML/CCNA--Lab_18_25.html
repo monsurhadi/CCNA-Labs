@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Lab 18</title>
+  <meta name="generator" content="CherryTree">
+  <link rel="stylesheet" href="res/styles4.css" type="text/css" />
+</head>
+<body>
+<div class='page'><h1 class='title'>Lab 18</h1><br/><p><h1>Lab No : 18 :: VPN (VIRTUAL PRIVATE NETWORK)</h1></p><p></p><p>A <strong>Virtual Private Network (VPN)</strong> extends a private network across a public network such as the Internet. </p><p>It enables users to send and receive data securely over shared or public networks as if their devices were directly connected to the private network.</p><p></p><p></p><p><strong>Generic Routing Encapsulation (GRE)</strong> is a tunneling protocol developed by Cisco Systems. It encapsulates various network layer protocols </p><p>inside virtual point-to-point or point-to-multipoint links over an IP network.</p><p>GRE creates a virtual tunnel between two endpoints, allowing packets from different protocols to be transported across networks that may not support those protocols directly.</p><p></p><p></p><p><img src="images/25-1.png" alt="images/25-1.png" /></p><p></p><p></p><p><h3>Configuration:</h3></p><p>1.At first interface up all the routers assigning the IPs.</p><p>2.Get the routing done for 3 routers.</p><p></p><p><span style="text-decoration:underline;">Router1:</span></p><p>Router(config)#int tunnel 1</p><p></p><p>Router(config-if)#</p><p>%LINK-5-CHANGED: Interface Tunnel1, changed state to up</p><p></p><p>Router(config-if)#ip add 192.168.5.1 255.255.255.0      //Here 192.168.5.1 is the virtual IP assigned on tunnel interface no 1.</p><p>Router(config-if)#tunnel source f0/0</p><p>Router(config-if)#tunnel destination 10.10.2.2</p><p></p><p><span style="text-decoration:underline;">Router2:</span></p><p>Router(config)#int tunnel 1</p><p></p><p>Router(config-if)#</p><p>%LINK-5-CHANGED: Interface Tunnel1, changed state to up</p><p></p><p>Router(config-if)#ip add 192.168.5.2 255.255.255.0    //Here source router Virtual IP &amp; destination Virtual IP should be on the same subnet.</p><p>Router(config-if)#tunnel source f0/0</p><p>Router(config-if)#tunnel destination 10.10.1.1</p></div>
+</body>
+</html>

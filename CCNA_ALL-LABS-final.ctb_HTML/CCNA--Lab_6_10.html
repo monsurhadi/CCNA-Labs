@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Lab 6</title>
+  <meta name="generator" content="CherryTree">
+  <link rel="stylesheet" href="res/styles4.css" type="text/css" />
+</head>
+<body>
+<div class='page'><h1 class='title'>Lab 6</h1><br/><p><h1>Lab No : 06 (Dynamic Routing -OSPF:: Open Shortest Path First)</h1></p><p></p><p></p><p><img src="images/10-1.png" alt="images/10-1.png" /></p><p></p><p><h2>Steps:</h2><ol><li>Interface up for all router.</li><li>Assign IPs into all 3 PCs.</li><li>OSPF routing to all 3 and make mandatory area 0 in router1.</li><li>ping to all PCs to check the connections.</li></ol></p><p></p><p><span style="text-decoration:underline;">Router0:</span></p><p>Router(config)#router ospf 1</p><p>Router(config-router)#network 192.168.10.4 0.0.0.3 area 0</p><p>Router(config-router)#network 192.168.10.0 0.0.0.3 area 0</p><p>Router(config-router)#network 172.16.1.16 0.0.0.15 area 0</p><p>Router(config-router)#end</p><p></p><p><span style="text-decoration:underline;">Router1:</span></p><p>Router(config)#router ospf 1</p><p>Router(config-router)#network 192.168.10.8 0.0.0.3 area 0</p><p>Router(config-router)#network 192.168.10.0 0.0.0.3 area 0</p><p>Router(config-router)#network 10.10.10.0 0.0.0.255 area 0</p><p>Router(config-router)#end</p><p></p><p></p><p><span style="text-decoration:underline;">Router2:</span></p><p>Router(config)#router ospf 1</p><p>Router(config-router)#network 192.168.10.4 0.0.0.3 area 0</p><p>Router(config-router)#network 172.16.1.32 0.0.0.7 area 0</p><p>Router(config-router)#network 192.168.10.8 0.0.0.3 area 0</p><p>Router(config-router)#end</p><p></p></div>
+</body>
+</html>
